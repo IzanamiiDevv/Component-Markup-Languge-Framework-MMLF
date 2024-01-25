@@ -1,0 +1,17 @@
+TODO
+
+upgrade the compiler
+
+create variable transmitter
+
+create render method
+
+create auto state
+
+polishing
+
+bug checking > bug fixing
+
+testing
+
+release
