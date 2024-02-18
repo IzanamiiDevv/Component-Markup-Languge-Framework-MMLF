@@ -16,10 +16,7 @@ Code and Enjoy!
 
 
 ## Tools Used in This Project
-<br/>
-<div align="center">
-    <img src="https://skillicons.dev/icons?i=html,css,javascript,vscode" />
-</div>
+<img src="https://skillicons.dev/icons?i=html,css,javascript,vscode" />
 
 ### Documentation:
 
