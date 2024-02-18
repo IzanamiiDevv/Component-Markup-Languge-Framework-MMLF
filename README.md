@@ -15,7 +15,7 @@ Effortlessly create and deploy components, making UI development intuitive and e
 Code and Enjoy!
 
 
-<h2 align="center">Tools and Framework</h2>
+## Tools Used in This Project
 <br/>
 <div align="center">
     <img src="https://skillicons.dev/icons?i=html,css,javascript,vscode" />
