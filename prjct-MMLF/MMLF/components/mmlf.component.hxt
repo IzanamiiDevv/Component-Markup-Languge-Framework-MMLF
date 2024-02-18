@@ -1,0 +1,40 @@
+<!--Component Template-->
+
+
+<component name=""></component>
+
+<!--TEST COMMENTS-->
+
+<component name="demo">
+    <h1>WebPage</h1>
+    <p>This is my Table</p>
+    <table border="3">
+        <tr>
+            <td rowspan="2">A</td>
+            <td>B</td>
+            <td rowspan="2">C</td>
+        </tr>
+        <tr>
+            <td>C</td>
+        </tr>
+    </table>
+    <obj-a component="fruitsList"></obj-a>
+    <h1>Above is the fruit list</h1>
+</component>
+
+<component name="">
+    <!--Fruits component-->
+    <p>This is my List of Fruits</p>
+    <ol>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grapes</li>
+        <li>Water Melon</li>
+    </ol>
+</component>
+
+<component name="var">
+    <h1>${title}</h1>
+    <p>Hi ${name} Welcome to My Website</p>
+    <p>This is How many times you clicked ${clickTime}</p>
+</component>

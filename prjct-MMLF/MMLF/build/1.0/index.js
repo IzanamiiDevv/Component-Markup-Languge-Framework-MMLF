@@ -31,8 +31,8 @@ class Renderer extends HTMLElement {
                     case 'manual':
                         this.manual();
                         break;
-                    case 'auto':
-                        this.auto();
+                    case 'markup':
+                        this.markup();
                         break;
                     case 'info':
                         this.info();
@@ -49,7 +49,7 @@ class Renderer extends HTMLElement {
     }
 
     checkType(typ) {
-        const validTypes = ['manual', 'auto', 'info'];
+        const validTypes = ['manual', 'markup', 'info'];
       
         if (!validTypes.includes(typ)) {
             throw new SyntaxError(`Syntax Error:The type "${typ}",Are not valid make sure that the type is spelled correctly.`);
@@ -61,7 +61,7 @@ class Renderer extends HTMLElement {
         console.log('information');
     }
 
-    auto() {
+    markup() {
       if (glblNotification == 'true') {
           alert('The Renderer is Set to Auto');
       }
@@ -77,7 +77,7 @@ class Renderer extends HTMLElement {
               const componentName = this.getAttribute('component');
   
               if (!componentName) {
-                  console.error('Error: <obj-A> tag must have a "component" attribute.');
+                  console.error('Error: <obj-a tag must have a "component" attribute.');
                   return;
               }
   
@@ -110,7 +110,7 @@ let onDataLoadedCallback; // Callback to notify when data is loaded
 async function fetchComponentHTML() {
   try {
     // Fetch component.html asynchronously
-    const response = await fetch('./MMLF/components/component.html');
+    const response = await fetch(`./MMLF/components/mmlf.component.xht`);
 
     if (!response.ok) {
       throw new Error(`Failed to fetch component.html (HTTP status ${response.status})`);
@@ -163,9 +163,9 @@ export function render() {
 }
   
 
-//Iterpreter Area
+//Iterpreter Area -Prohibited Not Used-
 
-function interpreter(inputString) {
+function interpreters(inputString) {
     const regex = /<component name="([^"]+)">([\s\S]*?)<\/component>/g;
     const matches = inputString.matchAll(regex);
     const result = {};
@@ -177,4 +177,40 @@ function interpreter(inputString) {
     }
 
     return result;
+}
+
+// iterpreterV2
+
+function interpreter(inputString) {
+  const regex = /<component name="([^"]+)">([\s\S]*?)<\/component>/g;
+  const matches = inputString.matchAll(regex);
+  const result = {};
+
+  function isValidComponentName(name) {
+    return /^[a-zA-Z0-9]+$/.test(name);
+  }
+
+  for (const match of matches) {
+      const componentName = match[1];
+      const componentContent = match[2].trim();
+
+      // Check if the component name is valid (contains only letters or numbers)
+      if (!isValidComponentName(componentName)) {
+          console.error(`Error: Invalid component name "${componentName}". Only letters and numbers are allowed.`);
+          continue;
+      }
+
+      result[componentName] = componentContent;
+  }
+
+  return result;
+}
+
+export function getState(data, template) {
+  // Replace placeholders in the template with values from the data object
+  const replacedString = template.replace(/\${(.*?)}/g, (match, p1) => {
+    const key = p1.trim(); // Trim any extra whitespace
+    return data[key] !== undefined ? data[key] : match;
+  });
+return replacedString;
 }
