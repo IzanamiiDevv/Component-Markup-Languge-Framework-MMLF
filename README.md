@@ -24,5 +24,5 @@ Code and Enjoy!
 
 The <code><mmlf-render></code> Tag is used to Define the type of rendering method
 
-this section is not yet done pls wait for the updates!!!
+this section is not yet done pls wait for the updates!!!.
 
